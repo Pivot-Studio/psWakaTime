@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6rem;
+}
+
+.title {
+  align-self: flex-start;
+  margin: 50px 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  line-height: 31px;
+}
+
+.title a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+.table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.user img {
+  border-radius: 50%;
+}
