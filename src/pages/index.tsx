@@ -81,7 +81,7 @@ export default function Home() {
         return (
           <div className={styles.user}>
             <Image width={16} height={16} src={user.photo} alt="avatar" />
-            <Link href={`https://wakatime.com/${user.display_name}`}>
+            <Link href={`https://wakatime.com/${user.id}`}>
               {user.display_name}
             </Link>
           </div>
