@@ -5,7 +5,11 @@ const nextConfig = {
   output:'export',
   images:{
     unoptimized:true
-  }
+  },
 };
+// if production
+if (process.env.NODE_ENV === "production") {
+  nextConfig.basePath = "/psWakaTime";
+}
 
 module.exports = nextConfig;
