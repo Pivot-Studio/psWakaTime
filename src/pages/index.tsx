@@ -9,6 +9,7 @@ import { userList } from "../../userList";
 import { ColumnsType } from "antd/es/table";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useIsMobile } from "@/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,8 @@ interface UserData {
 export default function Home() {
   const [dataList, setDataList] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const isMobile = useIsMobile();
 
   const router = useRouter();
   async function getData() {
@@ -66,7 +69,6 @@ export default function Home() {
       key: "index",
       dataIndex: "index",
       align: "center",
-      width: "80px",
       render: (text, column, idx) => {
         return <span>{Number(idx) + 1}</span>;
       },
@@ -76,7 +78,6 @@ export default function Home() {
       key: "userName",
       dataIndex: "user",
       align: "center",
-      width: "120px",
       render: (user) => {
         return (
           <div className={styles.user}>
@@ -89,18 +90,16 @@ export default function Home() {
       },
     },
     {
-      title: "最近一周摸鱼时长",
+      title: `最近一周${isMobile ? "" : "摸鱼时长"}`,
       key: "totalTime",
       dataIndex: ["running_total", "human_readable_total"],
       align: "center",
-      width: "200px",
     },
     {
-      title: "平均每日摸鱼时间",
+      title: `平均每日${isMobile ? "" : "摸鱼时长"}`,
       key: "averageTime",
       dataIndex: ["running_total", "human_readable_daily_average"],
       align: "center",
-      width: "200px",
     },
     {
       title: "摸鱼工具",
@@ -150,6 +149,7 @@ export default function Home() {
           dataSource={dataList}
           pagination={false}
           loading={loading}
+          size={isMobile ? "small" : "large"}
         ></Table>
       </main>
     </>
