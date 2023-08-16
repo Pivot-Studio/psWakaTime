@@ -2,9 +2,7 @@
 
 统计带伙儿摸鱼情况
 
-## 链接
-
-待部署
+## [链接](https://waka.pivotstudio.cn/)
 
 ## 使用
 
